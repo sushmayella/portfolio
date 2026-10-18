@@ -5,7 +5,7 @@ const education = [
     degree: "Master of Science",
     major: "Management Science",
     institution: "Golden Gate University",
-    location: "San Francisco, California",
+    location: "San Francisco, California, United States",
     description:
       "Exploring the intersection of technology, management, and practical business applications while continuing to grow as a software engineer.",
     status: "In progress",
