@@ -1,26 +1,110 @@
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --background: #F5F0E7;
+  --foreground: #303A31;
+  --surface: #FFFAF2;
+  --muted-foreground: #697067;
+  --border: #DED8CC;
+
+  --sage: #71836D;
+  --terracotta: #B96F58;
+  --blue: #607CA6;
+
+  --font-display: Georgia, "Times New Roman", serif;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #202622;
+  --foreground: #F5F0E7;
+  --surface: #29312B;
+  --muted-foreground: #B8BEB5;
+  --border: #414A42;
+
+  --sage: #9DB49A;
+  --terracotta: #D28A70;
+  --blue: #91A9D0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted-foreground);
+  --color-border: var(--border);
+
+  --color-sage: var(--sage);
+  --color-terracotta: var(--terracotta);
+  --color-blue: var(--blue);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  min-height: 100%;
+  background: var(--background);
 }
 
 body {
+  min-height: 100%;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+::selection {
+  background: var(--sage);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+/* Theme toggle icons */
+.theme-sun,
+.theme-moon {
+  display: none;
+}
+
+html[data-theme="light"] .theme-sun {
+  display: none !important;
+}
+
+html[data-theme="light"] .theme-moon {
+  display: block !important;
+}
+
+html[data-theme="dark"] .theme-sun {
+  display: block !important;
+}
+
+html[data-theme="dark"] .theme-moon {
+  display: none !important;
 }
