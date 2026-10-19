@@ -141,6 +141,18 @@ export default function EducationPage() {
                 {item.degree}
               </h3>
 
+              {item.major && (
+              <p className="mt-1 text-sm text-[var(--sage)]">
+                {item.major}
+              </p>
+              )}
+
+             {item.minor && (
+             <p className="mt-1 text-xs text-[var(--muted)]">
+                Minor: {item.minor}
+             </p>
+             )}
+
               <p className="mt-2 text-sm font-medium">
                 {item.institution}
               </p>
@@ -265,7 +277,7 @@ export default function EducationPage() {
         </h2>
 
         <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/85">
-          I'm interested in backend and platform engineering opportunities
+          I&apos;m interested in backend and platform engineering opportunities
           where reliability, sound design, and practical problem-solving matter.
         </p>
 
