@@ -387,10 +387,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
           <div className="mb-10 max-w-2xl sm:mb-14">
             <p className="mb-4 font-mono text-xs tracking-[0.18em] text-terracotta uppercase">
-              How I think about engineering
+              My engineering North Star
             </p>
             <h2 className="text-3xl leading-tight text-foreground sm:text-4xl lg:text-5xl">
-              Good engineering is about more than making things work.
+              Build things that hold up, work together, and make a difference.
             </h2>
           </div>
 
