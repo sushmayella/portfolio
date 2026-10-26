@@ -107,7 +107,7 @@ const experiences = [
 
 export default function ExperiencePage() {
   return (
-    <main className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
+    <main className="mx-auto w-full max-w-7xl px-4 pt-8 pb-20 sm:px-6 sm:pt-10 lg:px-8">
       <section className="max-w-3xl">
         <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-sage">
           Experience

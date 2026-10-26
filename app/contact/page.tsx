@@ -26,13 +26,13 @@ const contactLinks = [
 
 export default function ContactPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-16 sm:px-10 sm:pt-24">
+    <main className="mx-auto w-full max-w-7xl px-4 pb-24 pt-8 sm:px-6 sm:pt-10 lg:px-8">
       <section className="max-w-4xl">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--sage)]">
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--sage)]">
           Contact
         </p>
 
-        <h1 className="mt-6 font-serif text-5xl leading-[1.08] tracking-tight text-[var(--foreground)] sm:text-7xl">
+        <h1 className="mt-5 font-serif text-5xl leading-[1.08] tracking-tight text-[var(--foreground)] sm:text-6xl">
           Good work starts
           <br />
           with a <span className="italic text-[var(--sage)]">conversation.</span>

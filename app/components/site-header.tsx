@@ -63,9 +63,7 @@ export default function SiteHeader() {
           href="/"
           aria-label="Sushma Yella, home"
           aria-current={pathname === "/" ? "page" : undefined}
-          className={`shrink-0 font-serif text-xl font-semibold tracking-tight ${
-            pathname === "/" ? "text-terracotta" : "text-foreground"
-          }`}
+          className={`shrink-0 font-serif text-xl font-semibold tracking-tight`}
         >
           SY<span className="text-terracotta">.</span>
         </Link>

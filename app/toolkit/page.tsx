@@ -1,7 +1,8 @@
 
 "use client";
 
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 const toolkitGroups = [
   {
@@ -442,13 +443,50 @@ function SkillGroup({
 
 export default function ToolkitPage() {
   const [selectedId, setSelectedId] = useState<string | null>("backend");
+  const pathname = usePathname();
+  const pageRef = useRef<HTMLElement>(null);
 
   const handleSelect = (id: string) => {
     setSelectedId((currentId) => (currentId === id ? null : id));
   };
 
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return;
+
+      const target = event.target;
+
+      const clickedNode = target.closest(
+        "button, a, input, textarea, select, [role='button']"
+      );
+
+      if (clickedNode) return;
+
+      const clickedCapability = target.closest(
+        '[aria-label="Interactive engineering capability map"]'
+      );
+
+      if (!clickedCapability) {
+        setSelectedId(null);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    setSelectedId(null);
+  }, [pathname]);
+
   return (
-    <main className="mx-auto max-w-6xl px-5 pb-20 pt-12 sm:px-8 sm:pt-20">
+    <main
+      ref={pageRef}
+      className="mx-auto w-full max-w-7xl px-4 pb-20 pt-8 sm:px-6 sm:pt-10 lg:px-8"
+    >
       <section className="max-w-3xl pb-10 sm:pb-14">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--sage)]">
           Toolkit

@@ -83,7 +83,7 @@ const interests = [
 
 export default function EducationPage() {
   return (
-    <main className="mx-auto max-w-6xl px-5 pb-20 pt-12 sm:px-8 sm:pt-20">
+    <main className="mx-auto w-full max-w-7xl px-4 pb-20 pt-8 sm:px-6 sm:pt-10 lg:px-8">
       <section className="max-w-3xl pb-14 sm:pb-20">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--sage)]">
           Education & beyond
