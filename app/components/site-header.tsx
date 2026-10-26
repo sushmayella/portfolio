@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -16,6 +17,23 @@ type Theme = "light" | "dark";
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  function getLinkClass(href: string, mobile = false) {
+    const isActive =
+      href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+    const baseClass = mobile
+    ? "relative block border-b border-border py-3 text-sm transition-colors last:border-b-0"
+    : "relative py-2 text-sm transition-colors";
+
+    return [
+      baseClass,
+      isActive
+        ? "font-medium text-terracotta after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:bg-terracotta"
+        : "text-muted hover:text-foreground",
+    ].join(" ");
+  }
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("portfolio-theme");
@@ -44,7 +62,10 @@ export default function SiteHeader() {
         <Link
           href="/"
           aria-label="Sushma Yella, home"
-          className="shrink-0 font-serif text-xl font-semibold tracking-tight text-foreground"
+          aria-current={pathname === "/" ? "page" : undefined}
+          className={`shrink-0 font-serif text-xl font-semibold tracking-tight ${
+            pathname === "/" ? "text-terracotta" : "text-foreground"
+          }`}
         >
           SY<span className="text-terracotta">.</span>
         </Link>
@@ -57,7 +78,8 @@ export default function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={getLinkClass(link.href)}
             >
               {link.label}
             </Link>
@@ -154,7 +176,8 @@ export default function SiteHeader() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block border-b border-border py-3 text-sm text-muted transition-colors last:border-b-0 hover:text-foreground"
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={getLinkClass(link.href, true)}
             >
               {link.label}
             </Link>
