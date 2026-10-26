@@ -1,4 +1,12 @@
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Sushma Yella to discuss software engineering opportunities, backend systems, distributed architectures, and practical AI.",
+};
+
 const contactLinks = [
   {
     number: "01",

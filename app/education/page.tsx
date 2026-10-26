@@ -1,4 +1,13 @@
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Education & Beyond",
+  description:
+    "Explore Sushma Yella's educational background in management science and computer science, combining technical foundations with business and software engineering.",
+};
+
+
 const education = [
   {
     period: "Current",

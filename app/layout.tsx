@@ -13,10 +13,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
-  title: "Sushma Yella | Software Engineer",
-  description: "Backend-leaning software engineer building reliable systems, cloud-native services, and practical AI applications",
+  title: {
+    default: "Sushma Yella | Software Engineer",
+    template: "%s | Sushma Yella",
+  },
+  description:
+    "Software engineer building scalable backend systems, distributed applications, real-time data pipelines, and AI-powered solutions.",
 };
+
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

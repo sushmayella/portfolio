@@ -1,4 +1,13 @@
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Engineering Work",
+  description:
+    "Explore software engineering projects involving payment processing, event-driven architectures, distributed systems, and real-time fraud analysis.",
+};
+
+
 const palette = {
   sage: "#71836D",
   terracotta: "#B96F58",

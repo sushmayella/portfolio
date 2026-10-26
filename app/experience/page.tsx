@@ -1,4 +1,13 @@
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Experience",
+  description:
+    "Explore Sushma Yella's software engineering experience building backend payment systems, distributed event-driven services, and cloud-native applications.",
+};
+
+
 const experiences = [
   {
     role: "Senior Software Engineer",
